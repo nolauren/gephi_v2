@@ -1,95 +1,71 @@
-#Gephi
+## Gephi
 
-# Install with PC
-Follow the instructions on the [Gephi Install page.] (http://gephi.github.io/users/install/)
+### Install with PC
+Follow the instructions on the [Gephi Install page.](http://gephi.github.io/users/install/)
 
-# Install with MAC
+### Install with MAC
 
 Download [Gephi](http://gephi.github.io/). 
 
 Open the .dmg file. Drag Gephi into Applications. Launch Gephi.
 
+### Data
 
-#Data
+Go to [Google Spreadsheets](https://docs.google.com/spreadsheets/d/1zDkN6uR4ODW14jUg5kvPxZ_2gbVqEtS6ZmsRcZ948c8/edit?usp=sharing)
+to see our data. The data was taken from
+the [Getty Union List of Artist Names.](http://www.getty.edu/research/tools/vocabularies/ulan/) 
+Let's take a look. Describe the data. Is it clean? messy? smart? tidy?
 
-Go to [Google Spreadsheets to see our data.](https://docs.google.com/spreadsheets/d/1zDkN6uR4ODW14jUg5kvPxZ_2gbVqEtS6ZmsRcZ948c8/edit?usp=sharing)
+Now, download the sheets `nodes` and `edges` as csv files (File > Download as > Comma-seperated value)
+to your desktop/
 
-The data is from the [Getty Union List of Artist Names.](http://www.getty.edu/research/tools/vocabularies/ulan/) 
+### Import data
 
-Let's take a look. Describe the data. 
-Is it clean? messy? smart? tidy?
+Open up Gephi and go to the Data Laboratory. Select File > Import Spreadsheet, and choose `edge.csv`
+on your computer. Make sure you selection Edges Table as the table type. Do you see any problems
+with doing this?
 
-Just an Edge List:
-In order to import, Gephi requires the data to be structured with certain labels. The edge list needs "Source" and "Target". 
-Save the list as a .csv.  
-Back in Gephi, go to Data Table > Import Spreadsheet. Choose your .csv. It will import as an edge list. 
-By default, the data will be imported as directed. If we want the data to be undirected, add "Type" and use "Undirected". 
+In order to import, Gephi requires the data to be structured with certain labels. The edge list
+needs columns labeled "Source" and "Target". So, rename the column headers either directly in the
+Google docs or locally on your machine.
 
-Go to Data Table > Edges. We see our data.
-Go to Data Table > Nodes. We need to create our labels. Go to "Copy Data to other column" and duplicated "ID" to "Label". 
-Save! Save! Save! 
+Back in Gephi, go to Data Table > Import Spreadsheet. Choose your `edges.csv`. It should now
+import as an edge list. By default, the data will be imported as directed. If we want the data
+to be undirected, add "Type" and use "Undirected". 
 
-But what if we want to scale up? Our data changes? 
-We need to make an edge list and node list.
-For our edge list, we need "Source" , "Target", edge "ID", and "Type".
-For our node list, we need node "ID" and "Label".
- 
+Go to Data Table > Edges. We see our data. Now, go to Data Table > Nodes. Now, click on Overview
+on the top bar. What do you see?
 
+### Labels
 
- 
+To make our graph more readable, we can add labels to the points in the graph. Go back to the
+data laboratory and click on "Copy Data to other column" and selection "Last Name". Copy this
+value to "Label". Click back on overiew, and select the capital "T" on the bottom toolbar. You
+can play around with the bottom toolbar to make the graph more readable. Take a minute to do
+so!
 
-#Exercise 2
-Download [20050.zip](http://amst23101s2015.coursepress.yale.edu/wp-content/uploads/sites/165/2015/03/20050.zip). Download [Supreme Court Zip Files](http://amst23101s2015.coursepress.yale.edu/wp-content/uploads/sites/165/2015/03/ussc-31.zip).
+### Layout
+You can choose an algorithm to help construct a better layout for the graph. Let's take a look at two:
 
-[Code Book](http://scdb.wustl.edu/documentation.php?s=2c)
-
-File -> Open -> 20050.csv
-
-Here you must choose whether your graph is directed or undirected. The decision depends on your data.
-
-Note: If the proper screen doesn't seem to be appearing, you can always to go Window in the menu bar. For example, I often find myself having to go to Window-> Graph to get my network to appear. (As you'll see, Gephi is fickle!) To move the graph, select Command and then move your graph. You can zoom in and out with your mouse.
-
-[Overview of Gephi Panel](http://www.clementlevallois.net/gephi/tuto/en/gephi_cheat%20sheets_en.pdf) by Clement Levallois.
-
-
-
-#Data
-To see the data, select Data Laboratory. (If the tables don't appear, go to Window -> Data Table)
-
-It separates your data into a node list and edge list.  You can adjust the data within Gephi. If you do so, make sure to export it!
-
-Let's take a quick look at the graph. How does it look? Look good? 
-Let's add labels.
-
-
-#Layout
-You can choose your layout. Let's take a look at two:
-
-
-
+```
 Layout -> Fruchterman Reingold -> Run -> Stop
+```
 
-It is based on graph drawing. The idea is that the edges want to stay together but the nodes want to move apart.
-It is comes out of physics and mimicks the movement of charged particles.  
+It is based on graph drawing. The idea is that the edges want to stay together but the nodes want to
+move apart. It is comes out of physics and mimicks the movement of charged particles.  We can also
+try:
 
-
-
+```
 Layout -> Forced Atlas2 -> Run -> Stop
+```
 
-Designed for Gephi and popular for visualizations.
+Designed for Gephi and popular for visualizations in DH.
 
+The first time you select a layout, options will appear. Some adjustments you might consider are
+Gravity, Prevent Overlap and Scaling. To return to this screen, go to Data Laboratory -> Layout
+Select the layout you want to adjust and the options screen will appear.
 
-
-The first time you select a layout, options will appear. Some adjustments you might consider are  Gravity, Prevent Overlap and Scaling. To return to this screen, go to Data Laboratory -> Layout. Select the layout you want to adjust and the options screen will appear.
-
-
-
-#Labels
-In the graph view, select the T in the bottom menu. The labels will appear. Their are several options next to the T that allow you to adjust text font and size. Play around!
-
-
-
-#Statistics
+### Statistics
 Statistics -> Modularity -> Run
 
 Modularity is an algorithm designed to help identify groups or communities in a network (i.e. community detection). It measures the nodes, so to visualize it, we want to look at how this calculation impacts the nodes. Go toward the top left of your screen  and select Partition -> Refresh (icon with two arrows) -> Nodes ->  Choose a partition parameter  -> Modularity Class
