@@ -21,7 +21,8 @@ to your desktop/
 
 ### Import data
 
-Open up Gephi and go to the Data Laboratory. Select File > Import Spreadsheet, and choose `edge.csv`
+Open up Gephi and go to the Data Laboratory. 
+File > Import Spreadsheet, and choose `edge.csv`
 on your computer. Make sure you selection Edges Table as the table type. Do you see any problems
 with doing this?
 
@@ -90,7 +91,7 @@ degree of a node:
 Appearance -> Nodes -> Attribute -> Degree
 ```
 
-You can change this to In-Degree and Out-Degree; notice how it changes the visualization.
+You can change this to "In-Degree" and "Out-Degree"; notice how it changes the visualization.
 
 Finally, we can have Gephi calculate the centrality of each node. 
 
@@ -108,7 +109,7 @@ certain nodes.
 Window -> Filters -> Library (double click) -> Topology -> Degree Range
 ```
 
-A slider will appear. Adjust accordingly.  Select Filter to apply. Now, try it with the Ego
+A slider will appear. Adjust accordingly.  Select "Filter" to apply. Now, try it with the Ego
 Network:
 
 ```
