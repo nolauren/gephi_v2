@@ -63,53 +63,62 @@ Designed for Gephi and popular for visualizations in DH.
 
 The first time you select a layout, options will appear. Some adjustments you might consider are
 Gravity, Prevent Overlap and Scaling. To return to this screen, go to Data Laboratory -> Layout
-Select the layout you want to adjust and the options screen will appear.
+Select the layout you want to adjust and the options screen will appear. Take a moment to play
+around with these options.
 
 ### Statistics
+
+Modularity is an algorithm designed to help identify groups or communities in a network (i.e.
+community detection). We can run it using:
+
+```
 Statistics -> Modularity -> Run
+```
 
-Modularity is an algorithm designed to help identify groups or communities in a network (i.e. community detection). It measures the nodes, so to visualize it, we want to look at how this calculation impacts the nodes. Go toward the top left of your screen  and select Partition -> Refresh (icon with two arrows) -> Nodes ->  Choose a partition parameter  -> Modularity Class
+You'll see a single pop up that doesn't mean much out context. To visualize the algorithm over
+selection:
 
-Now we have groups of cases. Let's say I want to know which cases are the most important. So, let's count the number of edges using Degree.
+```
+Appearance -> Nodes -> Attribute -> Modularity Class
+```
 
-Statistics -> Average Degree -> Run
+Now we have groups of cases (you may need to turn off the labels in order to see them). Now,
+let's say I want to know which cases are the most important. We visualize this using the
+degree of a node:
 
-Ranking (next to Partition) -> Select the Diamond -> Degree -> Min/Max -> Apply
+```
+Appearance -> Nodes -> Attribute -> Degree
+```
 
-Now you can adjust the Min / Max. The nodes with the least amount of edges are adjusted through Min size: and the nodes with the most amount of edges are adjusted by Max size:.  After you hit apply, the nodes sizes should adjust accordingly.
+You can change this to In-Degree and Out-Degree; notice how it changes the visualization.
 
-Let's also check out In-Degree and Out-Degree.
+Finally, we can have Gephi calculate the centrality of each node. 
 
-The other options are excellent as well and worth exploring!
+```
+Appearance -> Nodes -> Attribute -> Eigenvector Centrality
+```
 
-For example, betweenness and and closeness centrality are popular because they both measure which nodes are central to the network. You can access these calculations by selecting Avg. Path Length.  After you do that, go to the "Ranking" screen in the top left column. Make sure "Edges" is selected, click on "Betweenness Centrality," and then click on the red diamond symbol. Adjust the "Max size" to whatever number makes the important nodes distinguishable to you (we set ours to 50). Then, click "Apply." The nodes that have a high betweenness centrality, which means they are often on the shortest path to other nodes, should look larger. In our case, it isn't a surprise that 347 US 483 Brown v Board of Education is central to cases on school desegregation.
+### Outliers
 
+Finally, let's consider the case where our data has some outliers that we are not particularly
+interested in. This is extra important if you have a lot of data. We might consider removing
+certain nodes.
 
+```
+Window -> Filters -> Library (double click) -> Topology -> Degree Range
+```
 
-#Outliers(?)
-So, let's say there are some outliers that I am not interested in. (This is particularly important if you have a lot of data.) We might consider removing certain nodes. For example, let's say one case has only been cited by one other case. We might decide this case isn't important to our network for we want to know which cases are the most influential.
+A slider will appear. Adjust accordingly.  Select Filter to apply. Now, try it with the Ego
+Network:
 
-Window -> Filters -> Topology -> Degree Range
+```
+Window -> Filters -> Library (double click) -> Topology -> Ego Network
+```
 
-A slider will appear. Adjust accordingly.  Select Filter to apply.
-
- 
-#Final
-Select Preview. There are many options. Play around and make sure to hit refresh in order to see them. To Export, go to File -> Export
-
-
-
-
-
-#Assignment
-You can use your data or visualize a theme from the Supreme Court Data. In the response, explain the theme chosen, the decisions made in Gephi and any conclusions we can draw from the network.  More broadly, comment on the the possibilities and limits of network analysis and Gephi. Make sure to include the network in your blog post. Add “Network Analysis″ from Categories. 
-
-1. Use the  [Code Book](http://scdb.wustl.edu/documentation.php?s=2c) to pick a topic. (Ex. 20050  - Desegregation)
-
-2. Download the [ussc](http://amst23101s2015.coursepress.yale.edu/wp-content/uploads/sites/165/2015/03/ussc-31.zip).  Once you have downloaded, unzip and select your topic.
-
-3. Load your data into Gephi.  Adjust as you deem fit!
-
+This allows us to see the local neighborhood of a given node. Type in `500018666` to select
+the neighborhood of Georgia O'Keefe. You can modify the visualization by choosing how many
+degrees of seperation to include, and whether you want to add Georgia O'Keefe directly to
+the graphic.
 
 #Related Readings
 
