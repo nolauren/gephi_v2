@@ -99,7 +99,7 @@ Finally, we can have Gephi calculate the centrality of each node.
 Appearance -> Nodes -> Attribute -> Eigenvector Centrality
 ```
 
-### Outliers
+### Subsetting the graph
 
 Finally, let's consider the case where our data has some outliers that we are not particularly
 interested in. This is extra important if you have a lot of data. We might consider removing
